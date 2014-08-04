@@ -7,13 +7,13 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Collection;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicLong;
 
 public class VideoRepository {
+    private static final Map<Long, Video> videos = new HashMap<>();
+
     private final AtomicLong currentId = new AtomicLong(0L);
-    private final Map<Long, Video> videos = new HashMap<Long, Video>();
 
     public Video add(Video video) {
         video.setId(currentId.incrementAndGet());
@@ -25,6 +25,10 @@ public class VideoRepository {
 
     public Collection<Video> get() {
         return videos.values();
+    }
+
+    public Video get(long videoId) {
+        return videos.get(videoId);
     }
 
     private String getDataUrl(long videoId) {
