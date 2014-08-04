@@ -16,13 +16,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * requests to receive a JSON listing of the videos that have been sent to
  * the controller so far. Stopping the controller will cause it to lose the history of
  * videos that have been sent to it because they are stored in memory.
- * 
+ *
  * Notice how much simpler this VideoSvc is than the original VideoServlet?
  * Spring allows us to dramatically simplify our service. Another important
  * aspect of this version is that we have defined a VideoSvcApi that provides
  * strong typing on both the client and service interface to ensure that we
  * don't send the wrong paraemters, etc.
- * 
+ *
  * @author jules
  *
  */
@@ -31,7 +31,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 // handle certain HTTP requests for the DispatcherServlet
 @Controller
 public class VideoSvc implements VideoSvcApi {
-	
+
 	// An in-memory list that the servlet uses to store the
 	// videos that are sent to it by clients
 	private List<Video> videos = new CopyOnWriteArrayList<Video>();
@@ -47,7 +47,7 @@ public class VideoSvc implements VideoSvcApi {
 	// it into the body of the HTTP response to the client.
 	//
 	// The VIDEO_SVC_PATH is set to "/video" in the VideoSvcApi
-	// interface. We use this constant to ensure that the 
+	// interface. We use this constant to ensure that the
 	// client and service paths for the VideoSvc are always
 	// in synch.
 	//
@@ -59,14 +59,14 @@ public class VideoSvc implements VideoSvcApi {
 	public @ResponseBody boolean addVideo(@RequestBody Video v){
 		return videos.add(v);
 	}
-	
+
 	// Receives GET requests to /video and returns the current
 	// list of videos in memory. Spring automatically converts
 	// the list of videos to JSON because of the @ResponseBody
 	// annotation.
 	@RequestMapping(value=VIDEO_SVC_PATH, method=RequestMethod.GET)
 	public @ResponseBody List<Video> getVideoList(){
-		return videos;
+        return videos;
 	}
 
 }
