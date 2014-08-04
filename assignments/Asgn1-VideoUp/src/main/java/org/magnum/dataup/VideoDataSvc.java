@@ -2,7 +2,7 @@ package org.magnum.dataup;
 
 import org.magnum.dataup.model.Video;
 import org.magnum.dataup.model.VideoStatus;
-import org.magnum.dataup.repositories.VideoRepository;
+import org.magnum.dataup.repository.VideoRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;

@@ -1,4 +1,4 @@
-package org.magnum.dataup.repositories;
+package org.magnum.dataup.repository;
 
 import org.magnum.dataup.model.Video;
 import org.springframework.web.context.request.RequestContextHolder;

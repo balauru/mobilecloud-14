@@ -1,7 +1,7 @@
 package org.magnum.dataup;
 
 import org.magnum.dataup.model.Video;
-import org.magnum.dataup.repositories.VideoRepository;
+import org.magnum.dataup.repository.VideoRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
