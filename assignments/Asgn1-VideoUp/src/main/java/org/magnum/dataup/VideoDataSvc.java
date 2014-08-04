@@ -3,6 +3,7 @@ package org.magnum.dataup;
 import org.magnum.dataup.model.Video;
 import org.magnum.dataup.model.VideoStatus;
 import org.magnum.dataup.repository.VideoRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -14,7 +15,8 @@ import java.io.IOException;
 
 @Controller
 public class VideoDataSvc {
-    private final VideoRepository videoRepository = new VideoRepository();
+    @Autowired
+    public VideoRepository videoRepository;
 
     @RequestMapping(value = VideoSvcApi.VIDEO_DATA_PATH, method = RequestMethod.POST)
     public @ResponseBody ResponseEntity<VideoStatus> setVideoData(@PathVariable(VideoSvcApi.ID_PARAMETER) long videoId,

@@ -2,6 +2,7 @@ package org.magnum.dataup;
 
 import org.magnum.dataup.model.Video;
 import org.magnum.dataup.repository.VideoRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,7 +13,8 @@ import java.util.Collection;
 
 @Controller
 public class VideoSvc {
-    private final VideoRepository repository = new VideoRepository();
+    @Autowired
+    public VideoRepository repository;
 
     @RequestMapping(value = VideoSvcApi.VIDEO_SVC_PATH, method = RequestMethod.POST)
     public @ResponseBody Video addVideo(@RequestBody Video video) {
